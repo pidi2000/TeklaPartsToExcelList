@@ -1,0 +1,15 @@
+C:\#ProgrammierGeschichten\MakeTeklaListWPF\MakeTeklaListWPF\bin\Debug\MakeTeklaListWPF.exe.config
+C:\#ProgrammierGeschichten\MakeTeklaListWPF\MakeTeklaListWPF\bin\Debug\MakeTeklaListWPF.exe
+C:\#ProgrammierGeschichten\MakeTeklaListWPF\MakeTeklaListWPF\bin\Debug\MakeTeklaListWPF.pdb
+C:\#ProgrammierGeschichten\MakeTeklaListWPF\ObjDir\2017i\MakeTeklaListWPF\MakeTeklaListWPF.csprojAssemblyReference.cache
+C:\#ProgrammierGeschichten\MakeTeklaListWPF\ObjDir\2017i\MakeTeklaListWPF\MainWindow.g.cs
+C:\#ProgrammierGeschichten\MakeTeklaListWPF\ObjDir\2017i\MakeTeklaListWPF\App.g.cs
+C:\#ProgrammierGeschichten\MakeTeklaListWPF\ObjDir\2017i\MakeTeklaListWPF\MakeTeklaListWPF_MarkupCompile.cache
+C:\#ProgrammierGeschichten\MakeTeklaListWPF\ObjDir\2017i\MakeTeklaListWPF\MakeTeklaListWPF_MarkupCompile.lref
+C:\#ProgrammierGeschichten\MakeTeklaListWPF\ObjDir\2017i\MakeTeklaListWPF\MainWindow.baml
+C:\#ProgrammierGeschichten\MakeTeklaListWPF\ObjDir\2017i\MakeTeklaListWPF\MakeTeklaListWPF.g.resources
+C:\#ProgrammierGeschichten\MakeTeklaListWPF\ObjDir\2017i\MakeTeklaListWPF\MakeTeklaListWPF.Properties.Resources.resources
+C:\#ProgrammierGeschichten\MakeTeklaListWPF\ObjDir\2017i\MakeTeklaListWPF\MakeTeklaListWPF.csproj.GenerateResource.cache
+C:\#ProgrammierGeschichten\MakeTeklaListWPF\ObjDir\2017i\MakeTeklaListWPF\MakeTeklaListWPF.csproj.CoreCompileInputs.cache
+C:\#ProgrammierGeschichten\MakeTeklaListWPF\ObjDir\2017i\MakeTeklaListWPF\MakeTeklaListWPF.exe
+C:\#ProgrammierGeschichten\MakeTeklaListWPF\ObjDir\2017i\MakeTeklaListWPF\MakeTeklaListWPF.pdb
