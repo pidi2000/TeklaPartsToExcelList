@@ -1,5 +1,6 @@
 # TeklaPartsToExcelList
 Working on an Excel list generator for Tekla Structures.
+Tekla Structures 2017
 
 goals:
 - Assembly List
