@@ -39,35 +39,21 @@ namespace MakeTeklaListWPF
 
         private void ButtonGetAssembliesFromSelectedPArts_Click(object sender, RoutedEventArgs e)
         {         
-            GetParts getPArts = new GetParts(mod);
-            Dictionary<string, Assembly> assemblies = getPArts.GetAssemblysFromParts();
+        GetParts getParts = new GetParts(mod);
+        Dictionary<string, Assembly> assemblies = getParts.GetAssemblysFromParts();
 
-            Dictionary<string, List<InfoSinglePart>> assembliePartInfo = new Dictionary<string, List<InfoSinglePart>>(); //string: AssemblyPos  valus: List of SinglePart Info
-
-            foreach (var a in assemblies)
-            {
-                assembliePartInfo.Add(a.Key, getPartInfo.GetSinglePartInfoFromAssemblies(a.Value));
-            }
-            
-
-
-            string s = "";
-            
-            foreach (var pi in assembliePartInfo)
-                
-            {
-                string partinfo = "";
-                s =  s+pi.Key.ToString()+"\n";
-                foreach(var p in pi.Value)
+            List <AssemblyInfo> assemblyInfo = new List<AssemblyInfo>();
+            foreach(var ass in assemblies)
                 {
-                    partinfo = p.ToString(); 
-                    s= s+partinfo + "\n";
+                    assemblyInfo.Add(new AssemblyInfo(ass.Value));
                 }
 
-            }
-           labelInfoBox.Content = s;
-
-
+            string s = "";
+            foreach(var info in assemblyInfo)
+                {
+                    s=s+"\n"+info.ToString();
+                } 
+            labelInfoBox.Content = s;
         }
 
  

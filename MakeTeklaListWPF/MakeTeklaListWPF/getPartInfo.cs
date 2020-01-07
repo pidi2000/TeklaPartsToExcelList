@@ -30,7 +30,7 @@ namespace MakeTeklaListWPF
             //2.) Get Properties from Part:
             foreach (var p in parts)
             {
-                InfoSinglePart info = new InfoSinglePart("", "", "", 0, 0, 0);
+                InfoSinglePart info = new InfoSinglePart("", "", "", 0, 0, 0, 0);
                 ModelObject mo = p as ModelObject;
                 string posiNr = "";
                 string profile = "";
@@ -65,7 +65,8 @@ namespace MakeTeklaListWPF
                 }
             }
 
-            //4.) delete duplicates:
+            //4.) delete duplicates, find quantity of parts:
+
             List<InfoSinglePart> groupedQuantityAssembly = new List<InfoSinglePart>();
             string posNr = "startPosNr";
             int count = -1;
@@ -77,7 +78,10 @@ namespace MakeTeklaListWPF
                     posNr = part.PosNr;
                     count++;
                 }
+            //Quantity:
                 groupedQuantityAssembly[count].Quantity++;
+             //Total Weight:
+                groupedQuantityAssembly[count].WeightTotal =  groupedQuantityAssembly[count].Weight* groupedQuantityAssembly[count].Quantity;
             }
             return groupedQuantityAssembly;
         }
@@ -92,8 +96,10 @@ namespace MakeTeklaListWPF
         public double Length { get; set; }
         public double Weight { get; set; }
         public int Quantity { get; set; }
+        public double WeightTotal {get; set;}
+        
 
-        public InfoSinglePart(string _posNr, string _profile, string _material, double _length, double _weight, int _quantity)
+        public InfoSinglePart(string _posNr, string _profile, string _material, double _length, double _weight, int _quantity, double _weightTotal)
         {
             this.PosNr = _posNr;
             this.Profile = _profile;
@@ -101,11 +107,47 @@ namespace MakeTeklaListWPF
             this.Length = _length;
             this.Weight = _weight;
             this.Quantity = _quantity;
+            this.WeightTotal = _weightTotal;
         }
 
         public override string ToString()
         {
-            return $" PosNr:{PosNr}   Profil:{Profile}   Material:{Material}   Length:{Length}   Weight:{Weight}   Quantity:{Quantity}  ";
+            return $" PosNr:{PosNr}   Profil:{Profile}   Material:{Material}   Length:{Length}   Weight:{Weight}   Quantity:{Quantity}   WeightTotat:{WeightTotal} ";
         }
     }
+
+
+     class AssemblyInfo
+      {
+        private List<InfoSinglePart> InfoSiglePartList {get;set;}
+        public double AssemblyWeight{get;set;}
+        public string AssemblyPosNr{get;set;}
+        public int AssemblyQuantity{get;set;}
+
+        public AssemblyInfo(Assembly _assembly)
+            {
+          
+            this.InfoSiglePartList= getPartInfo.GetSinglePartInfoFromAssemblies(_assembly);
+            string _posNr="";
+            _assembly.GetReportProperty("ASSEMBLY_POS", ref _posNr);
+            int _quantity=0;
+            _assembly.GetReportProperty("MODEL_TOTAL", ref _quantity);
+            this.AssemblyPosNr = _posNr;
+            this.AssemblyQuantity = _quantity;
+
+            //Calculate Weight
+            double _assemblyWeight = 0;
+            foreach(var part in InfoSiglePartList)
+             {
+                _assemblyWeight = _assemblyWeight+part.WeightTotal;
+             }
+            this.AssemblyWeight=_assemblyWeight;
+         }
+
+           public override string ToString()
+        {
+            return $" PosNr:{AssemblyPosNr}    Weight:{AssemblyWeight}   Quantity:{AssemblyQuantity} ";
+        }
+
+     }
 }
